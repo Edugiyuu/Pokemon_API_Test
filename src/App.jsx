@@ -18,7 +18,7 @@ const App = () => {
   }, []);
 
   function handleClick(pokemonName) {
-    setPokemonNome(`Clocou no ${pokemonName}`);
+    setPokemonNome(`Escolheu ${pokemonName}!`);
     
   }
 
