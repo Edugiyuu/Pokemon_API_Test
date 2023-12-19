@@ -1,0 +1,6 @@
+.PokemonImg{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+     margin: 10px;
+}
