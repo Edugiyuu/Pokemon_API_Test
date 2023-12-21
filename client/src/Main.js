@@ -9,6 +9,8 @@ const Main = () => {
     const [pokemonInfo, setPokemonInfo] = useState("");
     const [pokemons, setPokemons] = useState([]);
 
+
+    
   const callAPI = () => {
     fetch("http://localhost:9000/testAPI")
       .then((response) => response.json())
@@ -23,7 +25,7 @@ const Main = () => {
   function handleClick(pokemon) {
     
     setPokemonNome(`Escolheu ${pokemon.name}!`);
-    setPokemonInfo(`${pokemon.name}`);
+    setPokemonInfo(pokemon.name);
     
   }
   return (
@@ -52,8 +54,9 @@ const Main = () => {
 
       <h2>{pokemonNome}</h2>
         
-        <Link to={`/${pokemonInfo}`}>{pokemonInfo}</Link>
-        
+        <Link to={`pokemon/${pokemonInfo}`}>Info sobre {pokemonInfo}</Link>
+        <br></br>
+        <a href={`pokemon/${pokemonInfo}`}>Info sobre {pokemonInfo}</a>
     </div>
   );
 };

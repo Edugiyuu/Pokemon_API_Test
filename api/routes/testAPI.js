@@ -1,14 +1,15 @@
 var express = require("express");
 var router = express.Router();
-
+//Mudar o type2 para type secundario e mudar o type para Primario
 const pokemons = [
     {
         id: 1,
         name: 'Pikachu',
         image: 'https://img.pokemondb.net/artwork/large/pikachu.jpg',
         skills: ['Thunder Wave ','Thunder Shock ','Double Team ', 'Electro Ball ', 'Quick Attack'],
-        type: 'Eletrico',
-        type2: ''
+        type: 'Elétrico',
+        type2: '',
+        peso: '6.0 kg'
     },
     {
         id: 2,
@@ -16,23 +17,26 @@ const pokemons = [
         image: 'https://img.pokemondb.net/artwork/large/charmander.jpg',
         skills: ['Ember ','Smokescreen ','Fire Fang'],
         type: 'Fogo',
-        type2: ''
+        type2: '',
+        peso: '8.5 kg'
     },
     {
         id: 3,
         name: 'Bulbassauro',
         image: 'https://img.pokemondb.net/artwork/large/bulbasaur.jpg',
         skills: ['Vine Whip ','Leech Seed ','Poison Powder'],
-        type: 'Planta',
-        type2: 'Venenoso'
+        type: 'Grama',
+        type2: 'Venenoso',
+        peso: '6.9 kg'
     },
     {
         id: 4,
         name: 'Squirtle',
         image: 'https://img.pokemondb.net/artwork/large/squirtle.jpg',
-        skills: ['Vine Whip ','Leech Seed ','Poison Powder'],
+        skills: ['Water Gun ','Rain Dance ','Bite'],
         type: 'Água',
-        type2: ''
+        type2: '',
+        peso: '9.0 kg'
     },
     {
         id: 5,
