@@ -43,7 +43,7 @@ const Main = () => {
 
       <div className="Pokemon-buttons">
         {pokemons.map((pokemon) => (
-          <div key={pokemon.id}>
+          <div key={pokemon.name}>
             <button onClick={() => handleClick(pokemon)}>
               {pokemon.name}
             </button>

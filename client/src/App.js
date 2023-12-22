@@ -14,7 +14,7 @@ const App = () => {
 
     <BrowserRouter >
     <Routes>
-      <Route path="pokemon/:id" element={<PokemonSkills />} />
+      <Route path="pokemon/:name" element={<PokemonSkills />} />
       <Route path="/" element={<Main />}/>
       <Route path="type/:type" element={<PokemonType />}/>
       <Route path="*" element={<Pagina404 />}/>

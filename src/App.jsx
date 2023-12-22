@@ -8,11 +8,12 @@ const App = () => {
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/eevee`)
       .then((response) => response.json())
       .then((parsedResponse) => {
         console.log(parsedResponse);
-        return parsedResponse.results;
+        return parsedResponse.abilities;
+        console.log(parsedResponse.results);
       })
       .then((json) => setPokemons(json))
   }, []);
@@ -25,9 +26,9 @@ const App = () => {
   return (
     <>
       {pokemons.map((pokemon) => (
-        <button href={`/${pokemon.name}`} key={pokemon.name} style={{ margin: '.5rem' }} onClick={() => handleClick(pokemon.name)}
+        <button href={`/${pokemon.name}`} style={{ margin: '.5rem' }} onClick={() => handleClick(pokemon.ability.name)}
         >
-          {pokemon.name}
+          {pokemon.ability.name}
         </button>
       ))}
       <h2>{pokemonNome}</h2>

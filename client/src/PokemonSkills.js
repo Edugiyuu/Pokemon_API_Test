@@ -16,7 +16,7 @@ const PokemonSkills = () => {
       .catch((err) => console.error(err));
   }, []);
   //Mudar o id pro nome
-  const selectedPokemon = pokemons.find((pokemon) => pokemon.name === params.id);
+  const selectedPokemon = pokemons.find((pokemon) => pokemon.name === params.name);
 
   
 
@@ -53,7 +53,7 @@ const PokemonSkills = () => {
           alt="Logo"
         />
       </div>
-      <h1>{params.id}</h1>
+      <h1>{params.name}</h1>
 
       {/* Se selectedPokemon existir a imagem do Pokémon*/}
       {selectedPokemon && (
@@ -67,7 +67,6 @@ const PokemonSkills = () => {
                 alt={selectedPokemon.name}
             />
             <div className='Infos'>
-              <strong>ID: {selectedPokemon.id}</strong>
               <strong className='Skills' >Moves: {selectedPokemon.skills}</strong>
               <Link to={`/type/${selectedPokemon.type}`} className='Type'style={{color:`${typeColor}`}}>Tipo: {selectedPokemon.type}</Link>
               <strong style={{color:`${typeColor2}`}}>Segundo Tipo: {selectedPokemon.type2}</strong>
