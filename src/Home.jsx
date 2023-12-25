@@ -42,9 +42,10 @@ const Home = () => {
                 src="https://cdn-icons-png.flaticon.com/512/287/287221.png"
                 style={{ width: "80px" }}
             />
+            <h1>Escolha seu Pokemon</h1>
         </div>
       
-        <h1>Escolha seu Pokemon</h1>
+        
         
       </header>
       <div >
@@ -65,7 +66,7 @@ const Home = () => {
             
             <div className='confirm-container'>
              <h2>Quer ver mais sobre {pokemonNome}?</h2>
-              <button to={`/pokemon/${pokemonNome}`}>Sim</button>
+              <Link to={`/pokemon/${pokemonNome}`}>Sim</Link>
               <button onClick={() => OpenClose()} >Não</button>
             </div>
           </div>
