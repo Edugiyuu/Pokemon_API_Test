@@ -11,10 +11,7 @@ function Abilities() {
           .then((parsedResponse) => {
             console.log(parsedResponse);
             setPokemonInfo(parsedResponse)
-            const abi = parsedResponse.stats.map((stat) => {
-              
-    
-            });
+            
     
           
           })
@@ -24,6 +21,12 @@ function Abilities() {
       }, []);
   return (
     <div>
+      <div className="Logo">
+             <img
+                src="https://cdn-icons-png.flaticon.com/512/287/287221.png"
+                style={{ width: "80px" }}
+            />
+        </div>
         {pokemonInfo.effect_entries && (
             <div>
               <h2>Abilities:</h2>

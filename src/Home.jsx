@@ -33,6 +33,13 @@ const Home = () => {
     }
 
   }
+  const [procurarPokemon, setProcurarPokemon] = useState('');
+  const pokemonPesquisado= () => {
+    window.location.href = `/pokemon/${procurarPokemon.toLowerCase()}`;
+  };
+  const pokemonEscolhido= () => {
+    window.location.href = `/pokemon/${pokemonNome}`;
+  };
 
   return (
     <div>
@@ -43,9 +50,14 @@ const Home = () => {
                 style={{ width: "80px" }}
             />
             <h1>Escolha seu Pokemon</h1>
+            <div className="pesquisar">
+              <input placeholder="Procurando um Pokemon?" type="text"value={procurarPokemon} onChange={(pokemonProcurado) => setProcurarPokemon(pokemonProcurado.target.value)}/>
+              <button  onClick={pokemonPesquisado}>
+                Procurar
+              </button>
+            </div>
+            
         </div>
-      
-        
         
       </header>
       <div >

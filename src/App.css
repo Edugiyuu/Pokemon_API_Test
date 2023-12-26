@@ -120,7 +120,7 @@ hr {
   display: flex;
   flex-direction: column;
   justify-content: center;
-    align-items: center;
+  align-items: center;
 }
 
 .Header2{
@@ -135,21 +135,8 @@ hr {
   margin-left: 2rem;
   font-size: 24px;
 }
-.img{
-  display: flex;
-  justify-content: center;
-  margin: 15px;
-  height: 200px;
-  border: 2px solid rgb(221, 16, 16);
-  
-  border-radius: 9px;
-}
+
 .Infos{
-  display: flex;
-  flex-direction:column;
-  justify-content:space-between;
-  padding: 1.5rem;
-  margin: 10px;
   border: 2px solid rgb(221, 16, 16);
   border-radius: 9px;
 
@@ -186,5 +173,20 @@ hr {
   .stats{
     font-weight: bold;
   }
+  .pesquisar{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    
+    
+  }
+  .pesquisar ::placeholder{
+    font-size: 15px;
+  }
+  .pesquisar button{
+    margin-left: 20px;
+    
+  }
+
   
   

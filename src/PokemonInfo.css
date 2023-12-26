@@ -112,12 +112,24 @@ hr {
 }
 .img{
   display: flex;
-  justify-content:start;
   margin: 15px;
+  flex-direction: column;
+  border: 3px solid rgb(221, 16, 16);
+  border-radius: 9px;
+  align-items: center;
+}
+.img img{
+  display: flex;
+  margin: 20px;
   height: 150px;
-  border: 2px solid rgb(221, 16, 16);
+  width: 150px;
   
   border-radius: 9px;
+}
+.img button{
+  display: flex;
+  margin: 20px;
+  
 }
 
 .stats{

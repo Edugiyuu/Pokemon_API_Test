@@ -5,6 +5,7 @@ import './PokemonInfo.css';
 function PokemonInfo() {
   const [pokemonInfo, setPokemonInfo] = useState({});
   const [statsColor, setStatsColor] = useState([]);
+  const [sprite, setSprite] = useState('front_default');
   const params = useParams();
 
   useEffect(() => {
@@ -21,7 +22,7 @@ function PokemonInfo() {
             return 'rgb(245, 85, 11)';
           }else if (stat.base_stat <= 70) {
             return 'rgb(233, 211, 17)';
-          }else if (stat.base_stat <= 130) {
+          }else if (stat.base_stat <= 200) {
             return 'rgb(16, 221, 26)';
           }
 
@@ -30,17 +31,14 @@ function PokemonInfo() {
         
       })
       .catch((error) => console.error("Error", error));
-  }, [params.name]);
+  }, []);
 
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${params.name}`)
       .then((response) => response.json())
       .then((parsedResponse) => {
         console.log(parsedResponse);
-        const abi = parsedResponse.stats.map((stat) => {
-          
-
-        });
+        
 
       
       })
@@ -48,7 +46,13 @@ function PokemonInfo() {
   }, []);
 
   console.log(statsColor);
-  
+  function mudarSprite() {
+    if (sprite === 'front_default') {
+      setSprite('back_default');
+    } else {
+      setSprite('front_default');
+    }
+  }
   return (
     <>
     <div className="Logo">
@@ -62,8 +66,9 @@ function PokemonInfo() {
           <h1>{pokemonInfo.name}</h1>
           <div className="Infos">
           {pokemonInfo.sprites && (
-            <div className="img">
-              <img src={pokemonInfo.sprites.front_default} alt="" />
+            <div className="img">  
+              <img src={pokemonInfo.sprites[sprite]} alt="" />
+              <button onClick={mudarSprite}>Mudar Sprite</button>
             </div>
           )}
           {pokemonInfo.abilities && (
@@ -86,7 +91,7 @@ function PokemonInfo() {
           
           {pokemonInfo.stats && (
             <div className="stats">
-            <h2>Stats:</h2>
+            <h2>Stats base:</h2>
             {pokemonInfo.stats.map((pokemon, index) => (
               <div key={index}>
                 <p style={{ color: statsColor[index] }}>{pokemon.base_stat}</p>
