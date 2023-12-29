@@ -109,6 +109,7 @@ hr {
     
     justify-content: space-around;
     align-items: center;
+    
 }
 .img{
   display: flex;
@@ -117,6 +118,8 @@ hr {
   border: 3px solid rgb(221, 16, 16);
   border-radius: 9px;
   align-items: center;
+  animation-name: example;
+  animation-duration: 1s;
 }
 .img img{
   display: flex;
@@ -126,6 +129,7 @@ hr {
   
   border-radius: 9px;
 }
+
 .img button{
   display: flex;
   margin: 20px;
@@ -138,6 +142,8 @@ hr {
   flex-wrap: wrap;
   justify-content:space-around;
   font-weight: bold;
+  animation-name: example;
+  animation-duration: 1s;
 }
 .ability{
   display: flex;
@@ -145,4 +151,14 @@ hr {
   flex-wrap: wrap;
   justify-content:space-around;
   font-weight: bold;
+}
+@keyframes example {
+  0%   {margin-left: 200px;}
+  100% {}
+}
+@keyframes appear {
+  0% {
+    transform:none;
+   
+  }
 }

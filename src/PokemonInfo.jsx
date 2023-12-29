@@ -33,24 +33,18 @@ function PokemonInfo() {
       .catch((error) => console.error("Error", error));
   }, []);
 
-  useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${params.name}`)
-      .then((response) => response.json())
-      .then((parsedResponse) => {
-        console.log(parsedResponse);
-        
-
-      
-      })
-      .catch((error) => console.error("Error", error));
-  }, []);
-
-  console.log(statsColor);
-  function mudarSprite() {
+  function mudarSpriteNormal() {
     if (sprite === 'front_default') {
       setSprite('back_default');
     } else {
       setSprite('front_default');
+    }
+  }
+  function mudarSpriteShiny() {
+    if (sprite === 'front_default') {
+      setSprite('back_shiny');
+    } else {
+      setSprite('front_shiny');
     }
   }
   return (
@@ -68,7 +62,8 @@ function PokemonInfo() {
           {pokemonInfo.sprites && (
             <div className="img">  
               <img src={pokemonInfo.sprites[sprite]} alt="" />
-              <button onClick={mudarSprite}>Mudar Sprite</button>
+              <button onClick={mudarSpriteNormal}>Mudar Sprite</button>
+              <button onClick={mudarSpriteShiny}>Versão Shiny</button>
             </div>
           )}
           {pokemonInfo.abilities && (
