@@ -16,6 +16,7 @@ html {
 
 body {
   margin: 1.5rem;
+  animation: corDeFundo 2s infinite;
 }
 
 body,
@@ -190,6 +191,7 @@ hr {
     margin-left: 20px;
     
   }
+  
 
   
   

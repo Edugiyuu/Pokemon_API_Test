@@ -8,11 +8,12 @@ import "./App.css";
 const Home = () => {
   const [pokemonInfo, setPokemonInfo] = useState({});
   const [pokemonNome, setPokemonNome] = useState("");
+  const [pokemonTotal, setPokemonTotal] = useState(20);
   const [pokemons, setPokemons] = useState([]);
   const [confirmPokemon, setConfirmPokemon] = useState(false);
 
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/`)
+    fetch(`https://pokeapi.co/api/v2/pokemon?limit=${pokemonTotal}&offset=30.`)
       .then((response) => response.json())
       .then((parsedResponse) => {
         console.log(parsedResponse);
@@ -24,7 +25,10 @@ const Home = () => {
   function handleClick(pokemonName) {
     setPokemonNome(pokemonName);
     setConfirmPokemon(true);
+  }
 
+  function verMais() {
+    setPokemonTotal(pokemonTotal + 10); // Aumenta o total de Pokémon
   }
   function OpenClose() {
     setConfirmPokemon(true);
@@ -36,9 +40,6 @@ const Home = () => {
   const [procurarPokemon, setProcurarPokemon] = useState('');
   const pokemonPesquisado= () => {
     window.location.href = `/pokemon/${procurarPokemon.toLowerCase()}`;
-  };
-  const pokemonEscolhido= () => {
-    window.location.href = `/pokemon/${pokemonNome}`;
   };
 
   return (
@@ -66,10 +67,11 @@ const Home = () => {
               
               {pokemonInfo.results.map((pokemon) => (
                 <button onClick={() => handleClick(pokemon.name)}>{pokemon.name}</button>
-              ))}
+              ))} 
             </div>
           )}
       <br></br>
+      <button onClick={verMais}>Ver mais</button>
       <Link to={`/pokemon/${pokemonNome}`}>{pokemonNome}</Link>
     
     </div>
