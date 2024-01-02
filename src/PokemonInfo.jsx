@@ -5,6 +5,7 @@ import './PokemonInfo.css';
 function PokemonInfo() {
   const [pokemonInfo, setPokemonInfo] = useState({});
   const [statsColor, setStatsColor] = useState([]);
+  const [statsBarra, setStatsBarra] = useState([]);
   const [sprite, setSprite] = useState('front_default');
   const params = useParams();
 
@@ -16,18 +17,24 @@ function PokemonInfo() {
         setPokemonInfo(parsedResponse);
 
         const newStatsColor = parsedResponse.stats.map((stat) => {
-          if (stat.base_stat <= 20) {
+          if (stat.base_stat <= 25) {
             return 'rgb(243, 15, 15)';
-          }else if (stat.base_stat <= 50) {
+          }else if (stat.base_stat <= 50) {  
             return 'rgb(245, 85, 11)';
-          }else if (stat.base_stat <= 70) {
+          }else if (stat.base_stat <= 70) { 
             return 'rgb(233, 211, 17)';
-          }else if (stat.base_stat <= 200) {
+          }else if (stat.base_stat <= 200) {  
             return 'rgb(16, 221, 26)';
           }
 
         });
         setStatsColor(newStatsColor);
+
+        const barStats = parsedResponse.stats.map((stat) => {
+          return `${stat.base_stat / 10}rem`
+
+        });
+        setStatsBarra(barStats);
         
       })
       .catch((error) => console.error("Error", error));
@@ -78,7 +85,7 @@ function PokemonInfo() {
             <div>
               <h2>Types:</h2>
               {pokemonInfo.types.map((pokemon) => (
-                <p className="Types">{pokemon.type.name}</p>
+                <Link to={`/pokemon/type/${pokemon.type.name}`} className="Types" >{pokemon.type.name}</Link>
               ))}
             </div>
           )}
@@ -88,8 +95,9 @@ function PokemonInfo() {
             <div className="stats">
             <h2>Stats base:</h2>
             {pokemonInfo.stats.map((pokemon, index) => (
-              <div key={index}>
-                <p style={{ color: statsColor[index] }}>{pokemon.base_stat}</p>
+              <div>
+                <p style={{ color: statsColor[index]}}>{pokemon.base_stat}</p>
+                <div style={{ width: statsBarra[index], height: '10px', backgroundColor: statsColor[index], borderRadius: '10px'}}></div>
                 <p style={{ color: statsColor[index] }}>{pokemon.stat.name}</p>
               </div>
             ))}

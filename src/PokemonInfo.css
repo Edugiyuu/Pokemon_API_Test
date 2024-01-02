@@ -106,7 +106,7 @@ hr {
 .Infos{
     display: flex;
     flex-direction: row;
-    
+    box-shadow: 10px 10px lightblue;
     justify-content: space-around;
     align-items: center;
     
@@ -120,6 +120,7 @@ hr {
   align-items: center;
   animation-name: example;
   animation-duration: 1s;
+  box-shadow: 10px 10px lightblue;
 }
 .img img{
   display: flex;
@@ -132,7 +133,8 @@ hr {
 
 .img button{
   display: flex;
-  margin: 20px;
+  margin: 15px;
+  
   
 }
 
@@ -144,14 +146,20 @@ hr {
   font-weight: bold;
   animation-name: example;
   animation-duration: 1s;
+  margin-top: 30px;
 }
-.ability{
+.stats h1{
+  display: flex;
+  align-items: center;
+}
+.ability, .Types{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content:space-around;
   font-weight: bold;
 }
+
 @keyframes example {
   0%   {margin-left: 200px;}
   100% {}

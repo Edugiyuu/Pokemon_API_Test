@@ -13,14 +13,14 @@ const Home = () => {
   const [confirmPokemon, setConfirmPokemon] = useState(false);
 
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit=${pokemonTotal}&offset=30.`)
+    fetch(`https://pokeapi.co/api/v2/pokemon?limit=${pokemonTotal}&offset=0.`)
       .then((response) => response.json())
       .then((parsedResponse) => {
         console.log(parsedResponse);
         setPokemonInfo(parsedResponse);
       })
       .then((json) => setPokemons(json))
-  }, []);
+  }, [pokemonTotal]);
 
   function handleClick(pokemonName) {
     setPokemonNome(pokemonName);
