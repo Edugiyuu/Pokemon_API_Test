@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams, NavLink } from "react-router-dom";
 import './TypesInfo.css'
-import MenuUp from "./MenuUp";
 function TypesInfo() {
   const [types, setTypes] = useState({});
   const params = useParams();
@@ -17,7 +16,6 @@ function TypesInfo() {
 
   return (
     <div>
-          <MenuUp/>
         <h1>{types.name}</h1>
 
       {types.damage_relations && (

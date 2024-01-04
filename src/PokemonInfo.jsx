@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, useParams } from 'react-router-dom';
 import './PokemonInfo.css';
-import MenuUp from "./MenuUp";
 
 function PokemonInfo() {
   const [pokemonInfo, setPokemonInfo] = useState({});

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import "./App.css";
-import MenuUp from "./MenuUp";
 
 // video: https://www.youtube.com/watch?v=0ZJgIjIuY7U&ab_channel=WebDevSimplified
 
