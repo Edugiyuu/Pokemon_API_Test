@@ -6,54 +6,52 @@ import MenuUp from "./MenuUp";
 
 // video: https://www.youtube.com/watch?v=0ZJgIjIuY7U&ab_channel=WebDevSimplified
 
-const Home = () => {
-  const [pokemonInfo, setPokemonInfo] = useState({});
-  const [pokemonNome, setPokemonNome] = useState("");
+const TypePage = () => {
+  const [typeInfo, setTypeInfo] = useState({});
+  const [type, setType] = useState("");
   const [pokemonTotal, setPokemonTotal] = useState(20);
   const [pokemons, setPokemons] = useState([]);
-  const [confirmPokemon, setConfirmPokemon] = useState(false);
+  const [confirmType, setConfirmType] = useState(false);
 
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit=${pokemonTotal}&offset=0.`)
+    fetch(`https://pokeapi.co/api/v2/type/?limit=18`)
       .then((response) => response.json())
       .then((parsedResponse) => {
         console.log(parsedResponse);
-        setPokemonInfo(parsedResponse);
+       
+        setTypeInfo(parsedResponse);
       })
       .then((json) => setPokemons(json))
   }, [pokemonTotal]);
 
   function handleClick(pokemonName) {
-    setPokemonNome(pokemonName);
-    setConfirmPokemon(true);
+    setType(pokemonName);
+    setConfirmType(true);
   }
 
-  function verMais() {
-    setPokemonTotal(pokemonTotal + 10);
-  }
   function OpenClose() {
-    setConfirmPokemon(true);
-    if (confirmPokemon === true) {
-      setConfirmPokemon(false)
+    setConfirmType(true);
+    if (confirmType === true) {
+      setConfirmType(false)
     }
+
   }
-  
-
   const [procurarPokemon, setProcurarPokemon] = useState('');
-  const pokemonPesquisado= () => {
-    window.location.href = `/pokemon/${procurarPokemon.toLowerCase()}`;
+  const typePesquisado= () => {
+    window.location.href = `/pokemon/type/${procurarPokemon.toLowerCase()}`;
   };
-
   return (
+    
     <div>
+      
         <header className="App-header">
         
         <div className="Titulo">
           
-            <h1>Escolha seu Pokemon</h1>
+             <h1>Procurando um tipo?</h1>
             <div className="pesquisar">
-              <input placeholder="Procurando um Pokemon?" type="text"value={procurarPokemon} onChange={(pokemonProcurado) => setProcurarPokemon(pokemonProcurado.target.value)}/>
-              <button  onClick={pokemonPesquisado}>
+              <input placeholder="Escreva o tipo em ingles :)" type="text"value={procurarPokemon} onChange={(pokemonProcurado) => setProcurarPokemon(pokemonProcurado.target.value)}/>
+              <button  onClick={typePesquisado}>
                 Procurar
               </button>
             </div>
@@ -62,27 +60,24 @@ const Home = () => {
         
       </header>
       <div >
-      {pokemonInfo.results && (
+      {typeInfo.results && (
             <div className="Pokemon-buttons">
               
-              {pokemonInfo.results.map((pokemon) => (
+              {typeInfo.results.map((pokemon) => (
                 <button onClick={() => handleClick(pokemon.name)}>{pokemon.name}</button>
               ))} 
             </div>
           )}
       <br></br>
-      <button onClick={verMais}>Ver mais</button>
-      <NavLink to={`/pokemon/${pokemonNome}`}>{pokemonNome}</NavLink>
-      
     
     </div>
-    {confirmPokemon && (
+    {confirmType && (
           <div className='container'>
             
             <div className='confirm-container'>
-             <h2>Quer ver mais sobre {pokemonNome}?</h2>
-              <NavLink to={`/pokemon/${pokemonNome}`}>Sim</NavLink>
-              <button onClick={OpenClose} >Não</button>
+             <h2>Quer ver mais sobre {type}?</h2>
+              <NavLink to={`/pokemon/type/${type}`}>Sim</NavLink>
+              <button onClick={() => OpenClose()} >Não</button>
             </div>
           </div>
         )}
@@ -90,4 +85,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default TypePage;

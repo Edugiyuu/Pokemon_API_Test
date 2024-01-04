@@ -135,7 +135,6 @@ hr {
   display: flex;
   margin: 15px;
   
-  
 }
 
 .stats{
@@ -161,12 +160,6 @@ hr {
 }
 
 @keyframes example {
-  0%   {margin-left: 200px;}
+  0%   {margin-left: 250px;}
   100% {}
-}
-@keyframes appear {
-  0% {
-    transform:none;
-   
-  }
 }

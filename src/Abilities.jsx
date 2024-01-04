@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
+import MenuUp from "./MenuUp";
 
 function Abilities() {
     const params = useParams();
@@ -21,12 +22,7 @@ function Abilities() {
       }, []);
   return (
     <div>
-      <div className="Logo">
-             <img
-                src="https://cdn-icons-png.flaticon.com/512/287/287221.png"
-                style={{ width: "80px" }}
-            />
-        </div>
+      <MenuUp/>
         {pokemonInfo.effect_entries && (
             <div>
               <h2>Abilities:</h2>

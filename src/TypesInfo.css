@@ -1,0 +1,28 @@
+
+.defInfo, .ataqInfo, .NaoEfetivo{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid rgb(221, 16, 16);
+    justify-content:space-around;
+    align-items: center;
+    border-radius: 9px;
+    box-shadow: 10px 10px lightblue;
+    padding: 25px;
+    animation-name: example;
+    animation-duration: 1s;
+    margin: 20px;
+    
+}
+
+.Fraquesas, .Resistencias, .SuperEfetivo, .NaoEfetivo{
+    display: flex;
+   
+    align-items: center;
+    
+    flex-direction: row;
+}
+
+  
+  .SuperEfetivo img, .NaoEfetivo img,.defInfo img, .ataqInfo img {
+    height: 50px;
+  }

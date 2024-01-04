@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from 'react-router-dom';
+import { Link, NavLink, useParams } from 'react-router-dom';
 import './PokemonInfo.css';
+import MenuUp from "./MenuUp";
 
 function PokemonInfo() {
   const [pokemonInfo, setPokemonInfo] = useState({});
@@ -46,22 +47,22 @@ function PokemonInfo() {
     } else {
       setSprite('front_default');
     }
+    if (sprite === 'back_shiny') {
+      setSprite('back_default')
+    }
   }
   function mudarSpriteShiny() {
     if (sprite === 'front_default') {
       setSprite('back_shiny');
-    } else {
+    } else if(sprite === 'back_shiny'){
       setSprite('front_shiny');
+    }else if(sprite === 'front_shiny'){
+      setSprite('back_shiny');
     }
   }
+  
   return (
     <>
-    <div className="Logo">
-             <img
-                src="https://cdn-icons-png.flaticon.com/512/287/287221.png"
-                style={{ width: "80px" }}
-            />
-        </div>
       {pokemonInfo && (
         <div>
           <h1>{pokemonInfo.name}</h1>
@@ -77,7 +78,7 @@ function PokemonInfo() {
             <div className="ability">
               <h2>Abilities:</h2>
               {pokemonInfo.abilities.map((pokemon) => (
-                <Link to={`/pokemon/ability/${pokemon.ability.name}`}>{pokemon.ability.name}</Link>
+                <NavLink to={`/pokemon/ability/${pokemon.ability.name}`}>{pokemon.ability.name}</NavLink>
               ))}
             </div>
           )}
@@ -85,7 +86,7 @@ function PokemonInfo() {
             <div>
               <h2>Types:</h2>
               {pokemonInfo.types.map((pokemon) => (
-                <Link to={`/pokemon/type/${pokemon.type.name}`} className="Types" >{pokemon.type.name}</Link>
+                <NavLink to={`/pokemon/type/${pokemon.type.name}`} className="Types" >{pokemon.type.name}</NavLink>
               ))}
             </div>
           )}

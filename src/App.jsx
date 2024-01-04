@@ -6,7 +6,10 @@ import PokemonInfo from "./PokemonInfo";
 import Pagina404 from "./Pagina404";
 import "./App.css";
 import Abilities from "./Abilities";
-import Types from "./Types";
+import TypesInfo from "./TypesInfo";
+import TypePage from "./TypePage";
+import NaturePage from "./NaturePage";
+import MenuUp from "./MenuUp";
 
 
 const App = () => {
@@ -14,13 +17,18 @@ const App = () => {
 
   return (
    
-
+    
     <BrowserRouter >
+    <MenuUp/>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="pokemon/:name" element={<PokemonInfo />} />
       <Route path="pokemon/ability/:ability" element={<Abilities />}/>
-      <Route path="pokemon/type/:type" element={<Types/>}/>
+      <Route path="pokemon/type/:type" element={<TypesInfo/>}/>
+      
+      <Route path="pokemon/type/" element={<TypePage/>}/>
+      <Route path="pokemon/nature/" element={<NaturePage/>}/>
+      <Route path="pokemon/nature/:nature" element={<TypesInfo/>}/>
       <Route path="*" element={<Pagina404 />}/>
       
     </Routes>
