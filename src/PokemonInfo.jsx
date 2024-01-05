@@ -4,6 +4,7 @@ import './PokemonInfo.css';
 
 function PokemonInfo() {
   const [pokemonInfo, setPokemonInfo] = useState({});
+  const [pokemonSpecies, setPokemonSpecies] = useState({});
   const [statsColor, setStatsColor] = useState([]);
   const [statsBarra, setStatsBarra] = useState([]);
   const [sprite, setSprite] = useState('front_default');
@@ -39,7 +40,15 @@ function PokemonInfo() {
       })
       .catch((error) => console.error("Error", error));
   }, []);
-
+  useEffect(() => {
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${params.name}`)
+      .then((response) => response.json())
+      .then((parsedResponse) => {
+        console.log(parsedResponse);
+        setPokemonSpecies(parsedResponse)
+      })
+      .catch((error) => console.error("Error", error));
+  }, []);
   function mudarSpriteNormal() {
     if (sprite === 'front_default') {
       setSprite('back_default');
@@ -66,8 +75,8 @@ function PokemonInfo() {
         <div>
           <h1>{pokemonInfo.name}</h1>
           <div className="Infos">
-          {pokemonInfo.sprites && (
-            <div className="img">  
+          {pokemonInfo.sprites && pokemonSpecies.color &&(
+            <div /* style={{border: `3px solid ${pokemonSpecies.color.name}`}}  */className="img">  
               <img src={pokemonInfo.sprites[sprite]} alt="" />
               <button onClick={mudarSpriteNormal}>Mudar Sprite</button>
               <button onClick={mudarSpriteShiny}>Versão Shiny</button>
@@ -89,6 +98,23 @@ function PokemonInfo() {
               ))}
             </div>
           )}
+           {pokemonSpecies.color && (
+            <div className="habitat">
+              <h2>Habitat:</h2>
+              <div>{pokemonSpecies.habitat.name}</div>   
+            </div>
+          )} 
+          {pokemonSpecies.pal_park_encounters && (
+            <div>
+              <h2 >Encontrado em:</h2>
+
+
+              {pokemonSpecies.pal_park_encounters.map((pokemon,index) => (
+                <div >{pokemonSpecies.pal_park_encounters[index].area.name}</div>
+              ))}
+            </div>        
+          )}
+
           </div>
           
           {pokemonInfo.stats && (
@@ -97,7 +123,7 @@ function PokemonInfo() {
             {pokemonInfo.stats.map((pokemon, index) => (
               <div>
                 <p style={{ color: statsColor[index]}}>{pokemon.base_stat}</p>
-                <div style={{ width: statsBarra[index], height: '10px', backgroundColor: statsColor[index], borderRadius: '10px'}}></div>
+                <div style={{ width: statsBarra[index], height: '10px', backgroundColor: statsColor[index], borderRadius: '10px', border: '1px solid rgb(0, 0, 0)'}}></div>
                 <p style={{ color: statsColor[index] }}>{pokemon.stat.name}</p>
               </div>
             ))}

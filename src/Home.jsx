@@ -10,7 +10,6 @@ const Home = () => {
   const [pokemonInfo, setPokemonInfo] = useState({});
   const [pokemonNome, setPokemonNome] = useState("");
   const [pokemonTotal, setPokemonTotal] = useState(20);
-  const [pokemons, setPokemons] = useState([]);
   const [confirmPokemon, setConfirmPokemon] = useState(false);
 
   useEffect(() => {
@@ -20,7 +19,6 @@ const Home = () => {
         console.log(parsedResponse);
         setPokemonInfo(parsedResponse);
       })
-      .then((json) => setPokemons(json))
   }, [pokemonTotal]);
 
   function handleClick(pokemonName) {
@@ -38,7 +36,6 @@ const Home = () => {
     }
   }
   
-
   const [procurarPokemon, setProcurarPokemon] = useState('');
   const pokemonPesquisado= () => {
     window.location.href = `/pokemon/${procurarPokemon.toLowerCase()}`;
@@ -67,11 +64,12 @@ const Home = () => {
               
               {pokemonInfo.results.map((pokemon) => (
                 <button onClick={() => handleClick(pokemon.name)}>{pokemon.name}</button>
-              ))} 
+              ))}
             </div>
           )}
       <br></br>
       <button onClick={verMais}>Ver mais</button>
+      <button onClick={verMais}>Mudar para os sprites</button>
       <NavLink to={`/pokemon/${pokemonNome}`}>{pokemonNome}</NavLink>
       
     

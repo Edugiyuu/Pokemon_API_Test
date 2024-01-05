@@ -187,7 +187,14 @@ hr {
     text-align: center;
   }
   .stats{
+    display: flex;
+    flex-direction: row;
     font-weight: bold;
+    border: 2px solid rgb(221, 16, 16);
+    border-radius: 9px;
+    padding: 15px;
+    box-shadow: 10px 10px lightblue;
+    align-items: center;
   }
   .pesquisar{
     display: flex;
@@ -244,7 +251,14 @@ hr {
   animation-delay: 2s;
   animation-fill-mode: forwards; */
 }
-
+/* .ability, .habitat{
+  border: 2px solid rgb(221, 16, 16);
+  border-radius: 9px;
+  padding: 20px;
+  box-shadow: 8px 8px lightblue;
+  
+  
+} */
 
 
 @keyframes fonteAnim {

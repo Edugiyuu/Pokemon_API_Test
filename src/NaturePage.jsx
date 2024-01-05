@@ -38,7 +38,7 @@ const NaturePage = () => {
   }
   const [procurarPokemon, setProcurarPokemon] = useState('');
   const pokemonPesquisado= () => {
-    window.location.href = `/pokemon/type/${procurarPokemon.toLowerCase()}`;
+    window.location.href = `/pokemon/nature/${procurarPokemon.toLowerCase()}`;
   };
   return (
     
@@ -76,7 +76,7 @@ const NaturePage = () => {
             
             <div className='confirm-container'>
              <h2>Quer ver mais sobre {pokemonType}?</h2>
-              <NavLink to={`/pokemon/type/${pokemonType}`}>Sim</NavLink>
+              <NavLink to={`/pokemon/nature/${pokemonType}`}>Sim</NavLink>
               <button onClick={() => OpenClose()} >Não</button>
             </div>
           </div>

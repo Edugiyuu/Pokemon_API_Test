@@ -22,7 +22,7 @@ function Abilities() {
       }, []);
   return (
     <div>
-      <MenuUp/>
+      
         {pokemonInfo.effect_entries && (
             <div>
               <h2>Abilities:</h2>
