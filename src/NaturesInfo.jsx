@@ -16,7 +16,7 @@ function NaturesInfo() {
 
   return (
     <div>
-      <h1>{params.nature}</h1>
+      <h1>{nature.name}</h1>
       {nature.decreased_stat &&(
         <div>
             <h3>A nature {nature.name} diminui:</h3>

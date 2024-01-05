@@ -61,9 +61,9 @@ const TypePage = () => {
       <div >
       {typeInfo.results && (
             <div className="Pokemon-buttons">
-              
+             
               {typeInfo.results.map((pokemon) => (
-                <button onClick={() => handleClick(pokemon.name)}>{pokemon.name}</button>
+                <button className={`btn btn-header ${pokemon.name}`} id={pokemon.name} onClick={() => handleClick(pokemon.name)}>{pokemon.name}</button>
               ))} 
             </div>
           )}

@@ -77,7 +77,9 @@ function PokemonInfo() {
           <div className="Infos">
           {pokemonInfo.sprites && pokemonSpecies.color &&(
             <div /* style={{border: `3px solid ${pokemonSpecies.color.name}`}}  */className="img">  
-              <img src={pokemonInfo.sprites[sprite]} alt="" />
+              <img src={pokemonInfo.sprites.versions['generation-v']['black-white'].animated[sprite]} alt="" />
+
+
               <button onClick={mudarSpriteNormal}>Mudar Sprite</button>
               <button onClick={mudarSpriteShiny}>Versão Shiny</button>
             </div>
