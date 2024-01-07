@@ -5,6 +5,7 @@
 }
 *{
   text-decoration: none;
+  background-color: #ffffff;
 }
 
 html {
@@ -86,12 +87,7 @@ button {
   padding: 0.8rem 1.6rem;
 }
 
-button:hover,
-button:focus {
-  background: var(--color);
-  box-shadow: 0 0 0 3px var(--color-light), 0 0 0 4px var(--color);
-  outline: none;
-}
+
 
 button:active {
   box-shadow: 0 0 0 3px var(--color), 0 0 0 4px var(--color);
@@ -139,33 +135,6 @@ hr {
 }
 
 
-.Header2{
-  display: flex;
-  flex-direction:row;
-  justify-content:start;
-  padding: 2rem;
-  border: 3px solid rgb(221, 16, 16);
-  border-radius: 9px;
-}
-.Header2 strong{
-  margin-left: 2rem;
-  font-size: 24px;
-}
-
-.Infos{
-  border: 2px solid rgb(221, 16, 16);
-  border-radius: 9px;
-
-}
-.Type{
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 24px;
-  margin-left: 2rem;
-}
-.Type:hover{
-  text-decoration: underline;
-}
 .container {
     position: fixed;
     top: 0;
@@ -181,10 +150,18 @@ hr {
   }
   
   .confirm-container {
+    display: flex;
+    flex-direction: column;
     background-color: #fff; 
     padding: 40px;
     border-radius: 10px;
+    align-items: center;
     text-align: center;
+  }
+  .confirm-container img{
+    height: 70px;
+    width: 70px;
+    margin: 20px;
   }
   .stats{
     display: flex;
@@ -217,18 +194,18 @@ hr {
     
   }
   .Menu :hover{
-    color: rgb(240, 14, 25);
     animation-name: fonteAnim;
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
     text-decoration: underline;
   }
 .active{
-  color: rgb(204, 10, 20);
-  
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 6px;
 }
 .active:hover{
-  color: rgb(204, 10, 20);
+
   animation-name: fonteAnim;
   animation-duration: 0.4s;
   animation-fill-mode: forwards;
@@ -240,17 +217,30 @@ hr {
   align-items: center;
   justify-content:space-evenly;
   font-weight: bold;
-  border: 2px solid rgb(221, 16, 16);
+  border: 2px solid rgb(0, 0, 0);
   border-radius: 9px;
   padding: 15px;
   margin-left: 100px;
   margin-right: 100px;
   box-shadow: 10px 10px lightblue;
-  /* animation-name: top;
-  animation-duration: 2s;
-  animation-delay: 2s;
-  animation-fill-mode: forwards; */
+  background: url(./img/pokeball.png);
+    /* background-repeat: no-repeat; */
+    background-position: center;
+    background-repeat: repeat-x;
+    background-color: rgb(216, 40, 40);
+   
 }
+
+.Menu img, .NavLink{
+  background: url(./img/pokeball.png);
+    /* background-repeat: no-repeat; */
+    background-position: center;
+    background-repeat: repeat-x;
+    background-color: rgb(216, 40, 40);
+    color: rgb(255, 255, 255); 
+}
+
+
 /* .ability, .habitat{
   border: 2px solid rgb(221, 16, 16);
   border-radius: 9px;
@@ -267,9 +257,9 @@ hr {
     --clr-white: #f7f7f7;
 
     --type-normal: #bdbda0;
-    --type-fire: rgb(247, 121, 31);
+    --type-fire: rgb(245, 125,  49);
     --type-water: #3a88ee;
-    --type-grass: #5dbd2d;
+    --type-grass: rgb(116, 203,  72);
     --type-electric: #ffd016;
     --type-ice: #94e6e6;
     --type-fighting: #C03028;
@@ -278,12 +268,12 @@ hr {
     --type-flying: #b6bbf7;
     --type-psychic: #ff4f83;
     --type-bug: #A8B820;
-    --type-rock: #B8A038;
-    --type-ghost: #705898;
+    --type-rock: rgb(182, 158,  49);
+    --type-ghost: #68518d;
     --type-dark: #5e493c;
     --type-dragon: #7038F8;
-    --type-steel: #B8B8D0;
-    --type-fairy: #ff91bf;
+    --type-steel: rgb(183, 185, 208);
+    --type-fairy: rgb(230, 158, 172);
 }
 .normal {
   background-color: var(--type-normal);
@@ -384,3 +374,33 @@ hr {
   }
   100% { opacity: 1;}
 }
+@media only screen and (max-width: 540px) {
+  .Menu{
+    
+    margin-left: 0px;
+    margin-right: 0px;
+    }
+    .Titulo{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 10px;
+    }
+    .Titulo h1{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 30px;
+    }
+    .Pokemon-buttons button{
+      height: 3.5rem;
+      width: 9rem;
+  
+    }
+    .Pokemon-buttons{
+      margin: 20px;
+    }
+    
+  }

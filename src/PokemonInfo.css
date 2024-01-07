@@ -1,107 +1,4 @@
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
 
-html {
-  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  --font-size: 1.2rem;
-  --color: rgb(190, 30, 19);
-  --color-light: #adf;
-  --color-dark: rgb(0, 0, 0);
-  --radius: 0.2rem;
-}
-
-body {
-  margin: 1.5rem;
-}
-
-body,
-input,
-textarea,
-button {
-  font-size: var(--font-size);
-  font-family: var(--font);
-}
-
-h1,
-h2,
-h3 {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-h1,
-h2,
-h3,
-p,
-ul {
-  margin: 1rem 0;
-}
-
-ul {
-  list-style: square;
-}
-
-li {
-  margin-bottom: 0.5rem;
-}
-
-label {
-  display: block;
-  margin-bottom: 0.25rem;
-}
-
-input,
-textarea {
-  display: block;
-  border: 1px solid #ccc;
-  width: 100%;
-  padding: 0.8rem;
-  border-radius: var(--radius);
-  background: #eee;
-  transition: 0.2s;
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--color);
-  background: white;
-  box-shadow: 0 0 0 3px var(--color-light);
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  border-radius: var(--radius);
-  transition: 0.1s;
-  background: var(--color);
-  color: var(--color-dark);
-  padding: 0.8rem 1.6rem;
-}
-
-button:hover,
-button:focus {
-  background: var(--color);
-  box-shadow: 0 0 0 3px var(--color-light), 0 0 0 4px var(--color);
-  outline: none;
-}
-
-button:active {
-  box-shadow: 0 0 0 3px var(--color), 0 0 0 4px var(--color);
-}
-
-button:disabled {
-  opacity: 0.5;
-  cursor: wait;
-}
-
-hr {
-  border: 2px solid black;
-  margin: 2rem auto;
-}
 
 .Infos{
     display: flex;
@@ -109,57 +6,180 @@ hr {
     box-shadow: 10px 10px lightblue;
     justify-content: space-around;
     align-items: center;
+    border-radius: 9px;
+    margin: 20px;
+    border: 2px solid red;
+    background-color: rgb(226, 226, 226);
+    
     
 }
 .img{
   display: flex;
   margin: 15px;
   flex-direction: column;
-   border: 3px solid rgb(221, 16, 16);  
+   border: 3px solid rgb(255, 255, 255);  
   border-radius: 9px;
   align-items: center;
   animation-name: example;
   animation-duration: 1s;
-  box-shadow: 10px 10px lightblue;
+  background: url(./img/pokeball.png);
+    /* background-repeat: no-repeat; */
+    background-position: center;
+    background-repeat: repeat-x;
+    background-color: rgb(65, 65, 65);
+  
 }
 .img img{
   display: flex;
   margin: 30px;
   height: 150px;
   width: 150px;
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 9px;
+ 
   
-
 }
 
 .img button{
   display: flex;
-  margin: 15px;
+  margin: 10px;
   
 }
 
 .stats{
   display: flex;
+  flex-direction: column;
+}
+.StatsBaseBar{
+  display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content:space-around;
-  font-weight: bold;
-  animation-name: example;
-  animation-duration: 1s;
-  margin-top: 30px;
-}
-.stats h1{
-  display: flex;
+  justify-content: center;
   align-items: center;
+
 }
-.ability, .Types{
+.BaseStats{
+  width:3rem;
+  
+  
+}
+.StatsName{
+  width: 10rem;
+}
+
+.ability, .Types,.habitat{
   display: flex;
+  
   flex-direction: column;
   flex-wrap: wrap;
   justify-content:space-around;
   font-weight: bold;
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 9px;
+  
+}
+.Types button{
+  margin: 0.3rem;
+  
 }
 
 @keyframes example {
   0%   {margin-left: 250px;}
   100% {}
 }
+@keyframes down {
+  0%   {margin-top: 200px;}
+  100% {}
+}
+@media only screen and (max-width: 650px) {
+  .Infos{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 10px 10px lightblue;
+    justify-content: space-around;
+    align-items: center;
+    justify-self: center;
+    background-repeat:repeat-y;
+  
+    
+    margin: 0px;
+    
+}
+.img{
+  display: flex;
+  margin: 15px;
+  flex-direction: column;
+  border: 3px solid rgb(255, 255, 255);  
+  border-radius: 9px;
+  align-items: center;
+  animation-name: example;
+  animation-duration: 1s;
+  background: url(./img/pokeball.png);
+    /* background-repeat: no-repeat; */
+    background-position: center;
+    background-repeat: repeat-x;
+    background-color: rgb(65, 65, 65);
+  
+}
+.img img{
+  display: flex;
+  margin: 20px;
+  height: 130px;
+  width: 130px;
+
+}
+
+.img button{
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+  
+}
+
+.stats{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content:space-around;
+  font-weight: bold;
+  animation-name: example;
+  animation-duration: 1s;
+  margin-top: 35px;
+  margin: 20px;
+}
+.ability, .Types,.habitat{
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  font-weight: bold;
+  
+}
+.BarraDeFundo{
+  width: 30px;
+}
+.Types button{
+  margin: 0.5rem;
+}
+.stats{
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  margin-top: 20px;
+}
+.StatsBaseBar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.BaseStats,.StatsName{
+  width: 5rem;
+  
+}
+  .BarraDeFundo{
+    display: flex;
+    
+  }
+  }

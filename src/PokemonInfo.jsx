@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, useParams } from 'react-router-dom';
 import './PokemonInfo.css';
+import './App.css'
 
 function PokemonInfo() {
   const [pokemonInfo, setPokemonInfo] = useState({});
@@ -32,7 +33,7 @@ function PokemonInfo() {
         setStatsColor(newStatsColor);
 
         const barStats = parsedResponse.stats.map((stat) => {
-          return `${stat.base_stat / 10}rem`
+          return `${stat.base_stat / 12}rem`
 
         });
         setStatsBarra(barStats);
@@ -79,7 +80,6 @@ function PokemonInfo() {
             <div /* style={{border: `3px solid ${pokemonSpecies.color.name}`}}  */className="img">  
               <img src={pokemonInfo.sprites.versions['generation-v']['black-white'].animated[sprite]} alt="" />
 
-
               <button onClick={mudarSpriteNormal}>Mudar Sprite</button>
               <button onClick={mudarSpriteShiny}>Versão Shiny</button>
             </div>
@@ -93,10 +93,10 @@ function PokemonInfo() {
             </div>
           )}
           {pokemonInfo.types && (
-            <div>
+            <div className="Types">
               <h2>Types:</h2>
-              {pokemonInfo.types.map((pokemon) => (
-                <NavLink to={`/pokemon/type/${pokemon.type.name}`} className="Types" >{pokemon.type.name}</NavLink>
+              {pokemonInfo.types.map((pokemon) => (            
+                <button className={`btn btn-header ${pokemon.type.name}`} id={pokemon.type.name}>{pokemon.type.name}</button>
               ))}
             </div>
           )}
@@ -120,13 +120,19 @@ function PokemonInfo() {
           </div>
           
           {pokemonInfo.stats && (
+            
             <div className="stats">
-            <h2>Stats base:</h2>
+             
+             <h2>Stats base:</h2>
             {pokemonInfo.stats.map((pokemon, index) => (
-              <div>
-                <p style={{ color: statsColor[index]}}>{pokemon.base_stat}</p>
-                <div style={{ width: statsBarra[index], height: '10px', backgroundColor: statsColor[index], borderRadius: '10px', border: '1px solid rgb(0, 0, 0)'}}></div>
-                <p style={{ color: statsColor[index] }}>{pokemon.stat.name}</p>
+              
+              <div className="StatsBaseBar">
+                <p className="StatsName"style={{ color: statsColor[index] }}>{pokemon.stat.name}</p>
+                <p className="BaseStats"style={{ color: statsColor[index]}}>{pokemon.base_stat}</p>
+                <div className="BarraDeFundo" style={{ width: '170px', height: '10px', backgroundColor: '#00000043', borderRadius: '10px',flexWrap: 'wrap'}}>
+                  <div style={{ width: statsBarra[index], height: '10px', backgroundColor: statsColor[index], borderRadius: '10px', border: '1px solid rgb(0, 0, 0)'}}></div>
+                </div>
+                
               </div>
             ))}
           </div>

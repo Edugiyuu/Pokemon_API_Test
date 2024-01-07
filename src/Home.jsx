@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import "./App.css";
-import MenuUp from "./MenuUp";
 
 // video: https://www.youtube.com/watch?v=0ZJgIjIuY7U&ab_channel=WebDevSimplified
 
 const Home = () => {
   const [pokemonInfo, setPokemonInfo] = useState({});
+  const [pokemonImg, setPokemonImg] = useState({});
   const [pokemonNome, setPokemonNome] = useState("");
   const [pokemonTotal, setPokemonTotal] = useState(20);
   const [confirmPokemon, setConfirmPokemon] = useState(false);
@@ -20,6 +20,15 @@ const Home = () => {
         setPokemonInfo(parsedResponse);
       })
   }, [pokemonTotal]);
+  useEffect(() => {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNome}`)
+      .then((response) => response.json())
+      .then((parsedResponse) => {
+        console.log(parsedResponse);
+        setPokemonImg(parsedResponse)
+      })
+      .catch((error) => console.error("Error", error));
+  }, [pokemonNome]);
 
   function handleClick(pokemonName) {
     setPokemonNome(pokemonName);
@@ -79,6 +88,10 @@ const Home = () => {
             
             <div className='confirm-container'>
              <h2>Quer ver mais sobre {pokemonNome}?</h2>
+             {pokemonImg.sprites && (
+              <img src={pokemonImg.sprites.versions['generation-v']['black-white'].animated.front_default} alt="" />
+             )}
+              
               <NavLink to={`/pokemon/${pokemonNome}`}>Sim</NavLink>
               <button onClick={OpenClose} >Não</button>
             </div>

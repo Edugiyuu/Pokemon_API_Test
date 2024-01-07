@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import "./App.css";
-import MenuUp from "./MenuUp";
 
 // video: https://www.youtube.com/watch?v=0ZJgIjIuY7U&ab_channel=WebDevSimplified
 
@@ -76,7 +75,7 @@ const NaturePage = () => {
             
             <div className='confirm-container'>
              <h2>Quer ver mais sobre {pokemonType}?</h2>
-              <NavLink to={`/pokemon/nature/${pokemonType}`}>Sim</NavLink>
+              <NavLink className={'NavLink'} to={`/pokemon/nature/${pokemonType}`}>Sim</NavLink>
               <button onClick={() => OpenClose()} >Não</button>
             </div>
           </div>

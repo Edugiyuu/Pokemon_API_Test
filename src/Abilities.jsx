@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-import MenuUp from "./MenuUp";
 
 function Abilities() {
     const params = useParams();
