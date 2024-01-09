@@ -24,6 +24,7 @@ function NaturesInfo() {
             <h3>Mas aumenta:</h3>
             <p>{nature.increased_stat.name}</p>
         </div>
+        
       )}
         
 

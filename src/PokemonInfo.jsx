@@ -72,6 +72,9 @@ function PokemonInfo() {
   
   return (
     <>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+    </style>
       {pokemonInfo && (
         <div>
           <h1>{pokemonInfo.name}</h1>
@@ -88,7 +91,7 @@ function PokemonInfo() {
             <div className="ability">
               <h2>Abilities:</h2>
               {pokemonInfo.abilities.map((pokemon) => (
-                <NavLink to={`/pokemon/ability/${pokemon.ability.name}`}>{pokemon.ability.name}</NavLink>
+                <NavLink className={'NavLink2'} to={`/pokemon/ability/${pokemon.ability.name}`}>{pokemon.ability.name}</NavLink>
               ))}
             </div>
           )}
@@ -96,7 +99,7 @@ function PokemonInfo() {
             <div className="Types">
               <h2>Types:</h2>
               {pokemonInfo.types.map((pokemon) => (            
-                <button className={`btn btn-header ${pokemon.type.name}`} id={pokemon.type.name}>{pokemon.type.name}</button>
+                <NavLink to={`/pokemon/type/${pokemon.type.name}`} className={`btn btn-header ${pokemon.type.name}`} id={pokemon.type.name} style={{borderRadius: '9px', margin:'4px'}}>{pokemon.type.name}</NavLink>
               ))}
             </div>
           )}
@@ -106,14 +109,10 @@ function PokemonInfo() {
               <div>{pokemonSpecies.habitat.name}</div>   
             </div>
           )} 
-          {pokemonSpecies.pal_park_encounters && (
-            <div>
-              <h2 >Encontrado em:</h2>
-
-
-              {pokemonSpecies.pal_park_encounters.map((pokemon,index) => (
-                <div >{pokemonSpecies.pal_park_encounters[index].area.name}</div>
-              ))}
+          {pokemonSpecies.evolves_from_species && (
+            <div className="Evolução">
+              <h3 >Evolução anterior</h3>
+                <NavLink className={'NavLink2'} to={`/pokemon/${pokemonSpecies.evolves_from_species.name}`} >{pokemonSpecies.evolves_from_species.name}</NavLink>
             </div>        
           )}
 
@@ -129,8 +128,8 @@ function PokemonInfo() {
               <div className="StatsBaseBar">
                 <p className="StatsName"style={{ color: statsColor[index] }}>{pokemon.stat.name}</p>
                 <p className="BaseStats"style={{ color: statsColor[index]}}>{pokemon.base_stat}</p>
-                <div className="BarraDeFundo" style={{ width: '170px', height: '10px', backgroundColor: '#00000043', borderRadius: '10px',flexWrap: 'wrap'}}>
-                  <div style={{ width: statsBarra[index], height: '10px', backgroundColor: statsColor[index], borderRadius: '10px', border: '1px solid rgb(0, 0, 0)'}}></div>
+                <div className="BarraDeFundo" style={{ width: '200px', height: '9px', backgroundColor: '#00000043', borderRadius: '10px',flexWrap: 'wrap'}}>
+                  <div style={{ width: statsBarra[index], height: '9px', backgroundColor: statsColor[index], borderRadius: '10px', border: '1px solid rgb(0, 0, 0)'}}></div>
                 </div>
                 
               </div>

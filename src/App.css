@@ -1,11 +1,13 @@
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
+  box-sizing: border-box; 
 }
+
 *{
   text-decoration: none;
-  background-color: #ffffff;
+  
+  
 }
 
 html {
@@ -159,20 +161,11 @@ hr {
     text-align: center;
   }
   .confirm-container img{
-    height: 70px;
-    width: 70px;
+    height: 200px;
+    width: 200px;
     margin: 20px;
   }
-  .stats{
-    display: flex;
-    flex-direction: row;
-    font-weight: bold;
-    border: 2px solid rgb(221, 16, 16);
-    border-radius: 9px;
-    padding: 15px;
-    box-shadow: 10px 10px lightblue;
-    align-items: center;
-  }
+  
   .pesquisar{
     display: flex;
     flex-direction: row;
@@ -249,9 +242,24 @@ hr {
   
   
 } */
+.Procurar:hover{
+  background: url(./img/lupa.png);
+  background-size: 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(216, 40, 40);
+  color: white;
+}
+
+
+.Menu {
+  background-color: var(--cor-de-fundo);
+}
 
 
 :root {
+    --cor-de-fundo: rgb(216, 40, 40); /* Cor padrão para o fundo */
+    
     --clr-black: #1c1c1c;
     --clr-gray: #ececec;
     --clr-white: #f7f7f7;

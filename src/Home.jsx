@@ -12,6 +12,7 @@ const Home = () => {
   const [pokemonTotal, setPokemonTotal] = useState(20);
   const [confirmPokemon, setConfirmPokemon] = useState(false);
 
+
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon?limit=${pokemonTotal}&offset=0.`)
       .then((response) => response.json())
@@ -51,7 +52,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="App">
         <header className="App-header">
         
         <div className="Titulo">
@@ -59,7 +60,7 @@ const Home = () => {
             <h1>Escolha seu Pokemon</h1>
             <div className="pesquisar">
               <input placeholder="Procurando um Pokemon?" type="text"value={procurarPokemon} onChange={(pokemonProcurado) => setProcurarPokemon(pokemonProcurado.target.value)}/>
-              <button  onClick={pokemonPesquisado}>
+              <button className="Procurar" onClick={pokemonPesquisado}>
                 Procurar
               </button>
             </div>
@@ -72,13 +73,12 @@ const Home = () => {
             <div className="Pokemon-buttons">
               
               {pokemonInfo.results.map((pokemon) => (
-                <button onClick={() => handleClick(pokemon.name)}>{pokemon.name}</button>
+                <button key={pokemon.name} onClick={() => handleClick(pokemon.name)}>{pokemon.name}</button>
               ))}
             </div>
           )}
       <br></br>
       <button onClick={verMais}>Ver mais</button>
-      <button onClick={verMais}>Mudar para os sprites</button>
       <NavLink to={`/pokemon/${pokemonNome}`}>{pokemonNome}</NavLink>
       
     
@@ -89,7 +89,7 @@ const Home = () => {
             <div className='confirm-container'>
              <h2>Quer ver mais sobre {pokemonNome}?</h2>
              {pokemonImg.sprites && (
-              <img src={pokemonImg.sprites.versions['generation-v']['black-white'].animated.front_default} alt="" />
+              <img src={pokemonImg.sprites.other['official-artwork'].front_default} alt="" />
              )}
               
               <NavLink to={`/pokemon/${pokemonNome}`}>Sim</NavLink>

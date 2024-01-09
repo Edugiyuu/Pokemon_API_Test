@@ -9,9 +9,16 @@
     border-radius: 9px;
     margin: 20px;
     border: 2px solid red;
-    background-color: rgb(226, 226, 226);
-    
-    
+    background: url(./img/pokeball2.png);
+    background-size: 20rem;
+    background-position: center;
+    background-repeat:no-repeat;
+    background-color: rgb(255, 255, 255);
+
+}
+
+.Infos img{
+  background-color: rgb(243, 243, 243);
 }
 .img{
   display: flex;
@@ -46,36 +53,65 @@
   
 }
 
+
 .stats{
   display: flex;
   flex-direction: column;
+  font-weight: bold;
+  border: 2px solid rgb(221, 16, 16);
+  border-radius: 9px;
+  padding: 15px;
+  box-shadow: 10px 10px lightblue;
+  align-items: first baseline;
+  background: url(./img/pokeball2.png);
+  background-size: 20rem;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-color: rgb(253, 253, 253);
+  padding-left: 50px;
+  margin: 20px;
 }
 .StatsBaseBar{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background-color: transparent;
 
 }
 .BaseStats{
-  width:3rem;
-  
+  width:4rem;
+  background-color: transparent;
   
 }
 .StatsName{
-  width: 10rem;
+  width: 13rem;
+  background-color: transparent;
 }
 
-.ability, .Types,.habitat{
+.ability, .Types,.habitat,.Evolução{
+  margin: 10px;
+  padding: 20px;
+  border-radius: 9px;
   display: flex;
-  
   flex-direction: column;
   flex-wrap: wrap;
   justify-content:space-around;
   font-weight: bold;
-  border: 3px solid rgb(255, 255, 255);
-  border-radius: 9px;
+  color: white;
+  background: url(./img/pokeball.png);
+    background-size: 6rem;
+    background-position: center;
+    background-repeat:no-repeat;
+    background-color: rgb(65, 65, 65);
+}
+.NavLink2{
+  color: white;
   
+}
+.NavLink2:hover{
+  border: 2px solid white;
+  border-radius: 9px;
 }
 .Types button{
   margin: 0.3rem;
@@ -90,7 +126,7 @@
   0%   {margin-top: 200px;}
   100% {}
 }
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 750px) {
   .Infos{
     display: flex;
     flex-direction: column;
@@ -98,7 +134,8 @@
     justify-content: space-around;
     align-items: center;
     justify-self: center;
-    background-repeat:repeat-y;
+    background-repeat:no-repeat;
+    background-size: 15rem;
   
     
     margin: 0px;
@@ -107,6 +144,7 @@
 .img{
   display: flex;
   margin: 15px;
+  padding: 40px;
   flex-direction: column;
   border: 3px solid rgb(255, 255, 255);  
   border-radius: 9px;
@@ -116,15 +154,16 @@
   background: url(./img/pokeball.png);
     /* background-repeat: no-repeat; */
     background-position: center;
-    background-repeat: repeat-x;
+    background-repeat: no-repeat;
     background-color: rgb(65, 65, 65);
   
 }
 .img img{
+  
   display: flex;
   margin: 20px;
-  height: 130px;
-  width: 130px;
+  height: 160px;
+  width: 160px;
 
 }
 
@@ -146,17 +185,24 @@
   margin-top: 35px;
   margin: 20px;
 }
-.ability, .Types,.habitat{
+.ability, .Types,.habitat,.Evolução{
   margin: 10px;
+  padding-bottom: 20px;
+  border-radius: 9px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content:space-around;
   font-weight: bold;
-  
+  color: white;
+  background: url(./img/pokeball.png);
+    background-size: 6rem;
+    background-position: center;
+    background-repeat:no-repeat;
+    background-color: rgb(65, 65, 65);
 }
 .BarraDeFundo{
-  width: 30px;
+  width: 50px;
 }
 .Types button{
   margin: 0.5rem;
